@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+
+    <title>Samantha Rivera - Photography</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon:ital@0;1&family=Roboto:ital,wght@0,500;1,500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,500;1,500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        :root {
+            --light-beige: #f8f5db;
+            --soft-green: #aec5a0;
+            --dark-green: #6b8e70;
+            --white: #fff;
+            --light-gray: #f5f5f5;
+            --dark-text: #333;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--white);
+            color: var(--dark-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .logo{
+            width: 100px;
+            height: auto;
+            position: absolute;
+            top: 22px;
+            left: 22px;
+            font-size: 15px;
+            font-weight: 400;
+            font-family: "IM Fell French Canon", serif;
+            color: var(--light-beige);
+        }
+        
+        .background{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('Images/background.webp');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+        
+        .blur-overlay {
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(4px);
+            background-color: rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        .hero-content{
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .hero h2{
+            font-size: 92px;
+            color: var(--light-beige);
+            text-align: center;
+            font-family: "Playfair Display", serif;
+        }
+        
+        .hero p{
+            font-size: 20px;
+            color: var(--light-beige);
+            text-align: center;
+        }
+        
+        .hero a{
+            text-decoration: none;
+            color: var(--light-beige);
+            font-size: 20px;
+            font-weight: 500;
+            padding: 10px 50px;
+            border-radius: 5px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+            border: 2px solid var(--light-beige);
+            justify-content: center;
+            position: relative;
+            top: 35px;
+        }
+        
+        .contact-me{
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-me:hover{
+            transform: scale(1.05);
+        }
+        
+        .arrow_down p{
+            font-size: 20px;
+            color: var(--light-beige);
+            position: absolute;
+            bottom: 65px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .arrow_down a{
+            font-size: 20px;
+            color: var(--light-beige);
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+              transform: translateX(-50%) translateY(0);
+            }
+            50% {
+              transform: translateX(-50%) translateY(-15px);
+            }
+        }
+
+        .navbar {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 50px;
+            position: fixed;
+            top: 0;
+            z-index: 3;
+        }
+
+        .navbar ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar a {
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+            color: var(--light-beige);
+            font-size: 20px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: transparent;
+            transition: color 0.3s ease;
+            border: none;
+        }
+
+        .navbar a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 6px;
+            height: 2px;
+            width: 0;
+            background-color: var(--light-beige);
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+        
+        .about-me {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--light-beige);
+            padding: 80px 20px;
+        }
+        
+        .about-content-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+            gap: 50px;
+        }
+        
+        .about-me-content {
+            flex: 1;
+            text-align: left;
+            max-width: 600px;
+        }
+        
+        .about-me-image {
+            flex: 1;
+            max-width: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .about-me-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-me h2 {
+            font-size: 52px;
+            color: var(--dark-green);
+            margin-bottom: 30px;
+            font-family: "Playfair Display", serif;
+        }
+        
+        .about-me p {
+            font-size: 18px;
+            color: var(--dark-text);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .portfolio {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--soft-green);
+            padding: 80px 20px;
+        }
+        
+        .portfolio h2 {
+            font-size: 52px;
+            color: var(--white);
+            margin-bottom: 50px;
+            font-family: "Playfair Display", serif;
+            text-align: center;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        .gallery-item {
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background-color: var(--white);
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: var(--white);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .contact {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--white);
+            padding: 80px 20px;
+        }
+        
+        .contact h2 {
+            font-size: 52px;
+            color: var(--dark-green);
+            margin-bottom: 50px;
+            font-family: "Playfair Display", serif;
+            text-align: center;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            width: 100%;
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        
+        .contact-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .contact-info p, .contact-info a {
+            color: var(--dark-text);
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-info a:hover {
+            color: var(--dark-green);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--dark-green);
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: scale(1.2);
+            color: var(--soft-green);
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            color: var(--dark-text);
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--white);
+            border: 1px solid var(--soft-green);
+            border-radius: 5px;
+            color: var(--dark-text);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--dark-green);
+        }
+        
+        button {
+            padding: 12px 30px;
+            background-color: var(--soft-green);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+        
+        button:hover {
+            background-color: var(--dark-green);
+            transform: scale(1.05);
+        }
+        
+        footer {
+            width: 100%;
+            background-color: var(--dark-green);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 900px) {
+            .about-content-wrapper {
+                flex-direction: column;
+            }
+            
+            .contact-details {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .hero h2 {
+                font-size: 62px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="navbar">
+        <nav class="nav-links">
+            <ul>
+                <a href="#about">About</a>
+                <a href="#portfolio">My work</a>
+                <a href="#contact">Contact</a>
+            </ul>
+        </nav>
+    </section>
+    <section class="background">
+     <div class="blur-overlay">
+        <div class="logo">
+            <h1>S.R</h1>
+        </div>
+        <div class="hero">
+          <div class="hero-content">
+            <h2>Samantha Rivera</h2>
+            <p>Professional Photographer</p>
+            <div class="contact-me">
+                <a href="#contact" class="btn">Contact me</a>
+            </div>
+          </div>
+        </div>
+     </div> 
+     <div class="arrow_down">
+        <p>About me</p>
+        <a href="#about"><i class="fa-solid fa-arrow-down"></i></a>
+     </div>
+    </section>
+    
+    <section class="about-me" id="about">
+        <div class="about-content-wrapper">
+            <div class="about-me-content">
+                <h2>About Me</h2>
+                <p>Hi! I'm Samantha Rivera, a passionate photographer with a love for capturing moments. My journey in photography began at a young age, and it has since evolved into a lifelong passion.</p>
+                <p>I specialize in portrait and landscape photography, and I strive to tell stories through my lens. With an eye for detail and a commitment to excellence, I work with clients to create stunning images that they'll cherish forever.</p>
+                <p>When I'm not behind the camera, I enjoy hiking in nature, traveling to new destinations, and finding inspiration in the world around me. I believe that photography is not just about taking pictures—it's about preserving memories and emotions.</p>
+            </div>
+            <div class="about-me-image">
+                <img src="Images/about.jpg" alt="About Me">
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <h2>My Work</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="Images/Nature2.jpg" alt="Nature Photography">
+                <div class="gallery-overlay">
+                    <h3>Mountain Landscapes</h3>
+                    <p>Capturing the majesty of natural wonders</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Images/1.jpg" alt="Portrait Photography">
+                <div class="gallery-overlay">
+                    <h3>Artistic Portraits</h3>
+                    <p>Highlighting individual beauty and character</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Images/Nature.jpg" alt="Wildlife Photography">
+                <div class="gallery-overlay">
+                    <h3>Wildlife Photography</h3>
+                    <p>Magical moments with nature's creatures</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Images/City-Urban-landscape-Photography-3.webp" alt="Urban Photography">
+                <div class="gallery-overlay">
+                    <h3>Urban Exploration</h3>
+                    <p>Finding beauty in city landscapes</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Images/macro.webp" alt="Macro Photography">
+                <div class="gallery-overlay">
+                    <h3>Macro Photography</h3>
+                    <p>The small details that often go unnoticed</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Images/wedding.jpg" alt="Wedding Photography">
+                <div class="gallery-overlay">
+                    <h3>Wedding Photography</h3>
+                    <p>Capturing love and special moments</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-details">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fa-solid fa-envelope"></i> samantha@riveraphoto.com</p>
+                    <p><i class="fa-solid fa-phone"></i> (555) 123-4567</p>
+                    <p><i class="fa-solid fa-location-dot"></i> New York City, NY</p>
+                    
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025, Made by Noah McClung. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
